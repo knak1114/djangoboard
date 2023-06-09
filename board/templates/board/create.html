@@ -1,0 +1,16 @@
+{% extends 'board/base.html' %} 
+{% block title %} 글 작성 {% endblock title%}
+{% block con %}
+<h2><b>글작성</b></h2>
+<hr>
+
+<div class="row mt-5" style="margin:auto">
+        <form method="post">
+            {% csrf_token %}
+            제목:<input class="form-control" name="ntitle" type="text"><br>
+            작성자:<input class="form-control" name="nwriter" type="text"><br>
+            <textarea class="form-control" style="height: 250px;"name="ncontent" placeholder="내용 입력"></textarea><br>  
+            <button class="btn btn-dark">저장</button>
+        </form>
+</div>
+{% endblock %}
