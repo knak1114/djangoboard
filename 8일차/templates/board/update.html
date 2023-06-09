@@ -1,0 +1,18 @@
+{% extends 'board/base.html' %} 
+{% block title %} 글 수정 {% endblock title%}
+{% block con %}
+
+<h2><b>글수정</b></h2>
+<hr>
+<div class="row mt-5" style="margin:auto">
+    <div class="col-sm-5">
+        <form method="post">
+            {% csrf_token %}
+            제목:<input class="form-control" name="utitle" type="text" value="{{b.title}}"><br>
+            작성자:<input class="form-control" name="uwriter" type="text" value="{{b.writer}}"><br>
+            <textarea class="form-control" style="height: 250px;" name="ucontent" placeholder="내용 입력">{{b.content}}</textarea><br>  
+            <button class="btn btn-dark">저장</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

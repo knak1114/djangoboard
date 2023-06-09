@@ -1,0 +1,15 @@
+{% extends 'board/base.html' %} 
+{% block title %} {{b.title}} {% endblock title%}
+{% block con %}
+<h2><b>게시글</b></h2>
+<hr>
+<div class="row mt-5">
+        <h5>{{b.title}}</h5>
+        <h5>writen by {{b.writer}}</h5>
+        <textarea class="form-control" style="height: 250px;" disabled>{{b.content}}</textarea><br>
+        {{b.date | date:'y-m-d,H:i'}}<br>
+        조회수:{{b.readcount}}<br>
+        <a href="{% url 'board:update' b.id %}"><button class="btn btn-dark">수정</button></a>
+        <a href="{% url 'board:delete' b.id %}"><button class="btn btn-dark">삭제</button></a>  
+</div>
+{% endblock %}

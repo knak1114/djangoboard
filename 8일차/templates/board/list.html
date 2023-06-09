@@ -1,0 +1,38 @@
+{% extends 'board/base.html' %} 
+{% block title %} 글 목록 {% endblock title%}
+{% block con %}
+
+<h2><b>목록</b></h2>
+<hr>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">NO</th>
+        <th scope="col">게시글</th>
+        <th scope="col">작성자</th>
+        <th scope="col">게시일</th>
+        <th scope="col">조회수</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in bset %}  
+        <tr>
+            <th row="1">{{forloop.counter}}</th>
+            <td><a href="{% url 'board:detail' i.id %}">{{i.title}}</a></td>
+            <td>{{i.writer}}</td>
+            <td>{{i.date | date:'y-m-d,H:i'}}</td>
+            <td>{{i.readcount}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>     
+  </table>
+  <a href="{% url 'board:create' %}" class="btn btn-dark">작성</a>
+
+  <style>
+    a {
+        text-decoration: none;
+        text-decoration-line: none;
+    }
+  </style>
+{% endblock %}
+

@@ -1,0 +1,28 @@
+{% extends 'board/base.html' %} 
+{% block title %} Board {% endblock title%}
+{% block con %}
+    <h2><b>BOARD PAGE</b></h2>
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><b>글 목록</b></h5>
+              <p class="card-text"> Board 앱의 글 목록들 구경하기</p>
+              <a href="{% url 'board:list' %}" class="btn btn-primary">목록</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><b>글 작성</b></h5>
+              <p class="card-text"> Board 앱에 새로운 글을 작성하러 가기</p>
+              <a href="{% url 'board:create' %}" class="btn btn-primary">추가</a>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}
+
